@@ -1,8 +1,8 @@
-# Natural language processing model
+# Natural language processing (NLP) model
 
 [my-website]: https://AJG91.github.io "my-website"
 
-This repository contains code that demonstrates how...
+This repository contains code that demonstrates how transformers process text by building a DistilBERT sentiment classifier (NLP model).
 
 ## Getting Started
 
@@ -14,7 +14,6 @@ conda env create -f environment.yml
 ```
 * Enter the virtual environment with `conda activate nlp-model-env`
 * Install the packages in the repo root directory using `pip install -e .` (you only need the `-e` option if you intend to edit the source code in `nlp_model/`)
-
 
 ## Example
 
