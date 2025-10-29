@@ -1,0 +1,6 @@
+model_name: "distilbert-base-uncased"
+text: "Let's work on a coding problem!"
+seed: 42
+dpi: 400
+fig_path: "../outputs/"
+res_path: "../results/"
