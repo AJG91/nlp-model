@@ -8,9 +8,11 @@ dependencies:
   - python=3.12
   - numpy=2.3
   - pytorch=2.6.0
+  - scikit-learn=1.7
   - matplotlib=3.10
   - jupyter=1.1
   - pip
   - pip:
       - datasets==4.1.1
       - transformers==4.56.2
+      - accelerate>=0.26.0
