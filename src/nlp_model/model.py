@@ -1,5 +1,6 @@
-import torch as tc
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import (
+    AutoModelForSequenceClassification, AutoTokenizer, DataCollatorWithPadding
+)
 from nlp_model.utils import get_device, to_device
 
 class ModelAndTokenizer():
@@ -10,7 +11,7 @@ class ModelAndTokenizer():
         self.device = get_device()
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
 
-    def load_tokenizer(self, prompt, padding="longest", truncation="longest_first"):
+    def load_tokenizer(self, prompt, padding=True, truncation=True):
         """ """
         inputs = self.tokenizer(
             prompt,
@@ -20,12 +21,17 @@ class ModelAndTokenizer():
         )
         return to_device(inputs, self.device)
     
-    def apply_tokenizer(self, dataset, padding="longest", truncation=True):
+    def apply_tokenizer(self, dataset, truncation=True):
+        """ """
         data_tokenized = dataset.map(
-            lambda x: self.tokenizer(x["text"], truncation=truncation, padding=padding), 
+            lambda x: self.tokenizer(x["text"], truncation=truncation), 
             batched=True
         )
         return data_tokenized
+    
+    def data_collator(self):
+        """ """
+        return DataCollatorWithPadding(tokenizer=self.tokenizer)
 
     def decode_tokens(self, inputs, skip_special_tokens=True):
         """ """
