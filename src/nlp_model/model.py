@@ -21,11 +21,16 @@ class ModelAndTokenizer():
         )
         return to_device(inputs, self.device)
     
-    def apply_tokenizer(self, dataset, truncation=True):
+    def apply_tokenizer(self, dataset, padding=True, truncation=True):
         """ """
         data_tokenized = dataset.map(
-            lambda x: self.tokenizer(x["text"], truncation=truncation), 
-            batched=True
+            lambda x: self.tokenizer(
+                x["text"],
+                padding=padding,
+                truncation=truncation
+            ), 
+            batched=True,
+            remove_columns=["text"]
         )
         return data_tokenized
     
