@@ -27,17 +27,17 @@ def to_device(
     """
     return {k: (v.to(device) if tc.is_tensor(v) else v) for k, v in inputs.items()}
 
-def get_device(mps: bool=False):
+def get_device(mps: bool=True):
     """
     Finds available devices.
 
     Checks if Apple Metal Performance Shaders (MPS) is available on the system.
-    If True, returns the MPS device.
-    If False, defaults to the CPU.
+    If True, checks for the MPS device; if not found, defaults to CPU.
+    If False, automatically defaults to the CPU.
 
     Parameters
     ----------
-    mps : bool, optional (default= False)
+    mps : bool, optional (default=True)
         Allows the function to check for MPS.
         If True, function checks for MPS.
         If False, function defaults to CPU.
