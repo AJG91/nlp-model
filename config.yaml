@@ -3,5 +3,4 @@ text: "Let's work on a coding problem!"
 seed: 42
 dpi: 400
 fig_path: "../outputs/"
-log_path: "../experiments/"
 res_path: "../results/"
