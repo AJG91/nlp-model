@@ -3,7 +3,7 @@ import numpy as np
 import random
 import yaml
 from types import SimpleNamespace
-from typing import Any, Dict
+from typing import Any
 
 def to_device(
     inputs: dict[str, Any], 
@@ -74,7 +74,7 @@ def set_seed(seed: int = 42) -> None:
     if tc.cuda.is_available():
         tc.cuda.manual_seed_all(seed)
 
-def load_config(path: str = "config.yaml") -> Dict[str, Any]:
+def load_config(path: str = "config.yaml") -> dict[str, Any]:
     """
     Reads a YAML file from the given path and returns its contents as a Python dictionary. 
 
