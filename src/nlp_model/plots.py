@@ -1,6 +1,5 @@
 import numpy as np
 from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
-# import matplotlib.pyplot as plt
 
 def compute_confusion_matrix(
     y_true: np.ndarray, 
