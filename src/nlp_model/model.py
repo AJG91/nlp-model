@@ -36,7 +36,7 @@ class ModelAndTokenizer():
         self.device = get_device()
         self.tokenizer: PreTrainedTokenizerBase = AutoTokenizer.from_pretrained(model_name)
 
-    def load_tokenizer(
+    def tokenize_text(
         self, 
         prompt: str, 
         padding: Union[bool, str] = True, 
@@ -73,7 +73,7 @@ class ModelAndTokenizer():
         )
         return to_device(inputs, self.device)
     
-    def apply_tokenizer(
+    def tokenize_dataset(
         self, 
         dataset: Union[Dataset, DatasetDict], 
         padding: Union[bool, str] = True, 
@@ -145,7 +145,7 @@ class ModelAndTokenizer():
     
         Returns
         -------
-        list of str
+        list[str]
             A list of decoded text strings.
         """
         decode_text = []
@@ -173,7 +173,7 @@ class ModelAndTokenizer():
     
         Returns
         -------
-        Any
+        PreTrainedModel
             A sequence classification model instance located on `self.device`.
         """
         model = AutoModelForSequenceClassification.from_pretrained(
