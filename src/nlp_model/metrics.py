@@ -21,5 +21,5 @@ def compute_metrics(
     preds = predictions.argmax(axis=-1)
     return {
         "accuracy": accuracy_score(labels, preds),
-        "f1": f1_score(labels, preds, average="weighted"),
+        "f1 score": f1_score(labels, preds, average="weighted"),
     }
