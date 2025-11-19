@@ -168,7 +168,7 @@ class ModelAndTokenizer():
         
         Parameters
         ----------
-        attentions : bool, optional (default=True)
+        attentions : bool, optional (default=False)
             Enables attention outputs in the model.
     
         Returns
